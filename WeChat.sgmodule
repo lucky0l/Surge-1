@@ -4,13 +4,13 @@
 
 [Script]
 # 微信
-http-response ^https?:\/\/weixin110\.qq\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/WeChat.js,requires-body=1,timeout=10
+WeChat = type=http-response,pattern=^https?:\/\/weixin110\.qq\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/WeChat.js,requires-body=1,timeout=10
 
 # 朋友圈广告
-http-response ^https:\/\/mp\.weixin\.qq\.com\/mp\/(getappmsgext|getappmsgad) script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/WeChatAds.js,requires-body=true
+Moments = type=http-response,pattern=^https:\/\/mp\.weixin\.qq\.com\/mp\/(getappmsgext|getappmsgad),script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/WeChatAds.js,requires-body=true
 
 # 文章底部广告
-http-response ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/WeChat.js
+WeChatAds = type=http-response,pattern=^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/WeChat.js
 
 [MITM]
 hostname = weixin110.qq.com, mp.weixin.qq.com
