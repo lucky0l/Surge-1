@@ -1,4 +1,3 @@
-/*
 if ($request.url.indexOf("&oad") != -1) {
   $done({ response: {body: ""} });
 } else if ($request.url.indexOf("&ctier") != -1) {
@@ -7,8 +6,7 @@ if ($request.url.indexOf("&oad") != -1) {
 } else {
   $done({})
 }
-*/
-
+/*
 var data = {
   body: "{}",
   headers: {
@@ -16,3 +14,4 @@ var data = {
   }
 };
 $done({response: data});
+*/
