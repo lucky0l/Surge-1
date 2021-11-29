@@ -1,0 +1,11 @@
+#!name=Surge 网络信息面板
+#!desc=显示 Surge 网络信息面板
+#!system=ios
+
+[Panel]
+Traffic = script-name=traffic,update-interval=1
+NetInfo = script-name=net-info,update-interval=1
+
+[Script]
+traffic = type=generic,timeout=10,script-path=https://github.com/ATorNinja/Surge/raw/master/traffic.js,argument=icon=crown.fill&color=#f6c970
+net-info = script-path=https://github.com/ATorNinja/Surge/raw/master/net-info-panel.js,type=generic
