@@ -19,7 +19,7 @@ http-response ^https?://trade-acs\.m\.taobao\.com/gw/mtop\.taobao\.detail\.getde
 Surge & QX MITM = api.m.jd.com, trade-acs.m.taobao.com
 */
 
-const ScriptName = "äº¬ä¸œ|æ·˜å® æ¯"ä»·";
+const ScriptName = "JD | TB Price comparison";
 const $ = new Env(ScriptName);
 
 const ScriptIdentifier = "jd_tb_price";
