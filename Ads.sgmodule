@@ -7,8 +7,20 @@ force-http-engine-hosts = %APPEND% intl.iqiyi.com, maicai.api.ddxq.mobi, mobilea
 
 [Rule]
 URL-REGEX,^https?:\/\/api\.m\.jd.com\/client\.action\?functionId=start,REJECT-TINYGIF
+URL-REGEX,;^https:\/\/mobile\.cmbchina\.com\/GExternal\/ClientConfigLoad\/GetClientCfg\.aspx,REJECT
+DOMAIN,sessions.bugsnag.com,REJECT-TINYGIF // Added for webpage: sessions.bugsnag.com:443
+DOMAIN-SUFFIX,cupid.iqiyi.com,REJECT
 
 [URL Rewrite]
+
+# Redirect HTTP to HTTPS
+^https?:\/\/(www.)?taobao\.com\/ https://taobao.com/ 302
+^https?:\/\/(www.)?jd\.com\/ https://www.jd.com/ 302
+^https?:\/\/(www.)?mi\.com\/ https://www.mi.com/ 302
+^https?:\/\/you\.163\.com\/ https://you.163.com/ 302
+^https?:\/\/(www.)?suning\.com\/ https://suning.com/ 302
+^https?:\/\/(www.)?yhd\.com\/ https://yhd.com/ 302
+
 # 0~9
 # > 21st Century Business Herald - api.21jingji.com
 ^https?:\/\/api\.21jingji\.com\/ad\/ - reject
