@@ -19,7 +19,7 @@ http-response ^https?://trade-acs\.m\.taobao\.com/gw/mtop\.taobao\.detail\.getde
 Surge & QX MITM = api.m.jd.com, trade-acs.m.taobao.com
 */
 
-const ScriptName = "JD | TB Price comparison";
+const ScriptName = "京东|淘宝 比价";
 const $ = new Env(ScriptName);
 
 const ScriptIdentifier = "jd_tb_price";
@@ -236,7 +236,7 @@ function handleGetdetail() {
             try {
                 let guaranteeBarVO = data.componentsVO.guaranteeBarVO;
                 let textList = guaranteeBarVO.guaranteeItems[0].textList;
-                textList.unshift("ä»·æ ¼è¯¦æƒ…");
+                textList.unshift("价格详情");
             } catch (e) {
                 $.logErr(e, "handleGetdetail handle title error");
             }
@@ -249,16 +249,16 @@ function handleGetdetail() {
 
 
                 if (tradeConsumerProtection) {
-                    setTBItems(tradeConsumerProtection.tradeConsumerService.service.items, createTBItem("ä»·æ ¼è¯¦æƒ…", text));
+                    setTBItems(tradeConsumerProtection.tradeConsumerService.service.items, createTBItem("价格详情", text));
                     for (let t of text.split("\n")) {
                         if (t === "") continue;
                         pushTBItems(tradeConsumerProtection.tradeConsumerService.nonService.items, createTBItem(t));
                     }
                 }
 
-                setTBItems(consumerProtection.items, createTBItem("ä»·æ ¼è¯¦æƒ…", text));
+                setTBItems(consumerProtection.items, createTBItem("价格详情", text));
                 if (consumerProtection.serviceProtection)
-                    setTBItems(consumerProtection.serviceProtection.basicService.services, createTBItem("ä»·æ ¼è¯¦æƒ…", [text]));
+                    setTBItems(consumerProtection.serviceProtection.basicService.services, createTBItem("价格详情", [text]));
 
             } catch (e) {
                 $.logErr(e, "handleGetdetail handle body error");
@@ -330,7 +330,7 @@ function handleBijiago(data) {
         store = obj['store'][1];
     }
 
-    let tips = "æ-- tips";
+    let tips = "无tips";
     if (obj.hasOwnProperty("analysis")) {
         if (obj['analysis'].hasOwnProperty("tip")) {
             tips = obj['analysis']['tip'];
@@ -345,42 +345,42 @@ function handleBijiago(data) {
         },
         range: {
             "type": "text",
-            "title": "ä»·æ ¼åŒºé--'",
+            "title": "价格区间",
             "text": store.hasOwnProperty("price_range") ? store['price_range'] : "",
         },
         now: {
             "type": "price",
-            "title": "å½"å‰ä»·",
+            "title": "当前价",
             "price": Math.round(parseFloat(store['last_price']) / 100),
             "date": "-"
         },
         highest: {
             "type": "price",
-            "title": "æœ€é«˜ä»·",
+            "title": "最高价",
             "price": Math.round(parseFloat(store['highest'])),
             "date": time2str(store['max_stamp'] * 1000)
         },
         lowest: {
             "type": "price",
-            "title": "æœ€ä½Žä»·",
+            "title": "最低价",
             "price": Math.round(parseFloat(store['lowest'])),
             "date": time2str(parseInt(store['min_stamp']) * 1000)
         },
         day30: {
             "type": "price",
-            "title": "ä¸‰åå¤©",
+            "title": "三十天",
             "price": -1,
             "date": "-"
         },
         _618: {
             "type": "price",
-            "title": "å…­ä¸€å…«",
+            "title": "六一八",
             "price": -1,
             "date": "-"
         },
         _1111: {
             "type": "price",
-            "title": "åŒåä¸€",
+            "title": "双十一",
             "price": -1,
             "date": "-"
         }
@@ -406,10 +406,10 @@ function handleBijiago(data) {
         let show = promo_day['show'];
         let price = Math.round(promo_day['price']);
         let date = promo_day['date'];
-        if (promo_day['show'].indexOf("618ä»·æ ¼") != -1) {
+        if (promo_day['show'].indexOf("618价格") != -1) {
             historyObj._618['price'] = price;
             historyObj._618['date'] = date;
-        } else if (promo_day['show'].indexOf("åŒ11ä»·æ ¼") != -1) {
+        } else if (promo_day['show'].indexOf("双11价格") != -1) {
             historyObj._1111['price'] = price;
             historyObj._1111['date'] = date;
         } else
@@ -475,7 +475,7 @@ function request_history_price(id, type, callback) {
 
         if (err) {
             result.success = false;
-            result.msg = "èŽ·å–ä»·æ ¼ä¿¡æ¯å¤±è'¥";
+            result.msg = "获取价格信息失败";
             result.data = err;
         }
 
@@ -539,7 +539,7 @@ function priceDiff(now, old) {
     let diff = old - now;
     if (diff === 0)
         return '-'
-    return diff > 0 ? `â†"${Math.round(diff)}` : `â†‘${Math.round(Math.abs(diff))}`;
+    return diff > 0 ? `↓${Math.round(diff)}` : `↑${Math.round(Math.abs(diff))}`;
 }
 
 function space(str, len) {
@@ -774,7 +774,7 @@ function checkVersion(callback = () => { }) {
             try {
                 let obj = JSON.parse(data);
                 if (ScriptVersion !== obj.version)
-                    $.msg(`è„šæœ¬:${ScriptName} å‘çŽ°æ–°ç‰ˆæœ¬`, `ç‰ˆæœ¬å·ï¼š${obj.version}`, `æ›'æ–°å†…å®¹ï¼š${obj.msg}`);
+                    $.msg(`脚本:${ScriptName} 发现新版本`, `版本号：${obj.version}`, `更新内容：${obj.msg}`);
             } catch (e) {
                 $.logErr(e, resp);
             } finally {
