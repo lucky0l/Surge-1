@@ -413,6 +413,23 @@ DOMAIN-SUFFIX,cupid.iqiyi.com,REJECT
 # > Ximalaya FM
 ^https?:\/\/.+?\/api\/v\d\/adRealTime - reject
 ^https?:\/\/.+?\/(outadservice|ting\/preload)\/ - reject
+^https?:\/\/adse.+.com\/[a-z]{4}\/loading\?appid= - reject
+^https?:\/\/adse.ximalaya.com\/ting\/feed\?appid= - reject
+^https?:\/\/adse.ximalaya.com\/ting\/loading\?appid= - reject
+^https?:\/\/adse.ximalaya.com\/ting\?appid= - reject
+^https?:\/\/fdfs.xmcdn.com\/group21\/M03\/E7\/3F\/ - reject
+^https?:\/\/fdfs.xmcdn.com\/group21\/M0A\/95\/3B\/ - reject
+^https?:\/\/fdfs.xmcdn.com\/group22\/M00\/92\/FF\/ - reject
+^https?:\/\/fdfs.xmcdn.com\/group22\/M05\/66\/67\/ - reject
+^https?:\/\/fdfs.xmcdn.com\/group22\/M07\/76\/54\/ - reject
+^https?:\/\/fdfs.xmcdn.com\/group23\/M01\/63\/F1\/ - reject
+^https?:\/\/fdfs.xmcdn.com\/group23\/M04\/E5\/F6\/ - reject
+^https?:\/\/fdfs.xmcdn.com\/group23\/M07\/81\/F6\/ - reject
+^https?:\/\/fdfs.xmcdn.com\/group23\/M0A\/75\/AA\/ - reject
+^https?:\/\/fdfs.xmcdn.com\/group24\/M03\/E6\/09\/ - reject
+^https?:\/\/fdfs.xmcdn.com\/group24\/M07\/C4\/3D\/ - reject
+^https?:\/\/fdfs.xmcdn.com\/group25\/M05\/92\/D1\/ - reject
+
 # > Xueqiu - api.xueqiu.com,promo.xueqiu.com,182.92.251.113,101.201.175.228
 ^https?:\/\/.+?\/promotion\/(display_cache|display_ad|feed_display|search_ad) - reject
 ^https?:\/\/(api|promo)\.xueqiu\.com\/promotion\/(display_cache|display_ad|feed_display|search_ad) - reject
