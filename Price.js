@@ -1,41 +1,30 @@
 /*
-JD | TB Price comparison
-by Small
-date 2021-06-25
-Thanks @yichahucha
+jd tb 商品历史价格查询，比价
 
-因Surge不支持脚本部分语法导致淘宝比价报错，故修改原作者脚本，知晓原作者的可pr
+QuantumultX:
+^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig) url script-response-body https://raw.githubusercontent.com/zwf234/rules/master/js/price.js
 
-QX:
-^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig) url script-response-body https://service.2ti.st/QuanX/Script/jd_tb_price/main.js
-
-^http://.+/amdc/mobileDispatch url script-request-body https://service.2ti.st/QuanX/Script/jd_tb_price/main.js
-^https?://trade-acs\.m\.taobao\.com/gw/mtop\.taobao\.detail\.getdetail url script-response-body https://service.2ti.st/QuanX/Script/jd_tb_price/main.js
+^http://.+/amdc/mobileDispatch url script-request-body https://raw.githubusercontent.com/zwf234/rules/master/js/price.js
+^https?://trade-acs\.m\.taobao\.com/gw/mtop\.taobao\.detail\.getdetail url script-response-body https://raw.githubusercontent.com/zwf234/rules/master/js/price.js
 
 Surge4:
-http-response ^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig) requires-body=1,script-path=https://service.2ti.st/QuanX/Script/jd_tb_price/main.js
+http-response ^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig) requires-body=1,script-path=https://raw.githubusercontent.com/zwf234/rules/master/js/price.js
 
-http-request ^http://.+/amdc/mobileDispatch requires-body=1,script-path=https://service.2ti.st/QuanX/Script/jd_tb_price/main.js
-http-response ^https?://trade-acs\.m\.taobao\.com/gw/mtop\.taobao\.detail\.getdetail requires-body=1,script-path=https://service.2ti.st/QuanX/Script/jd_tb_price/main.js
+http-request ^http://.+/amdc/mobileDispatch requires-body=1,script-path=https://raw.githubusercontent.com/zwf234/rules/master/js/price.js
+http-response ^https?://trade-acs\.m\.taobao\.com/gw/mtop\.taobao\.detail\.getdetail requires-body=1,script-path=https://raw.githubusercontent.com/zwf234/rules/master/js/price.js
 
-Surge & QX MITM = api.m.jd.com, trade-acs.m.taobao.com
+MITM = api.m.jd.com, trade-acs.m.taobao.com
 */
 
 const ScriptName = "京东|淘宝 比价";
 const $ = new Env(ScriptName);
 
 const ScriptIdentifier = "jd_tb_price";
-const ScriptVersion = 7;
+const ScriptVersion = 5;
 const ScriptUrl = `https://service.2ti.st/QuanX/Script/${ScriptIdentifier}`
 
 const res = $request;
-
-let resp = null;
-try{
-  resp =$response
-}catch(err){
-  console.log(err)
-};
+const resp = isUndefined($response) ? null : $response;
 
 let Status = {
     Enable: 1,
@@ -325,53 +314,36 @@ function handleBijiago(data) {
         return data.msg;
 
     let obj = data.data;
-    let store = {};
 
-    if (obj['store'].length == 0) {
-        return "";
-    }
-    
-    if (obj['store'].length == 1) {
-        store = obj['store'][0];
-    }
-    else if (obj['store'].length > 1) {
-        store = obj['store'][1];
-    }
-
-    let tips = "无tips";
-    if (obj.hasOwnProperty("analysis")) {
-        if (obj['analysis'].hasOwnProperty("tip")) {
-            tips = obj['analysis']['tip'];
-        }
-    }
+    let store = obj['store'][1];
 
     let historyObj = {
         tips: {
             "type": "text",
             "title": "Tips:",
-            "text": tips,
+            "text": obj['analysis']['tip'],
         },
         range: {
             "type": "text",
             "title": "价格区间",
-            "text": store.hasOwnProperty("price_range") ? store['price_range'] : "",
+            "text": store['price_range'],
         },
         now: {
             "type": "price",
             "title": "当前价",
-            "price": Math.round(parseFloat(store['last_price']) / 100),
+            "price": Math.round(store['last_price'] / 100),
             "date": "-"
         },
         highest: {
             "type": "price",
             "title": "最高价",
-            "price": Math.round(parseFloat(store['highest'])),
+            "price": Math.round(store['highest']),
             "date": time2str(store['max_stamp'] * 1000)
         },
         lowest: {
             "type": "price",
             "title": "最低价",
-            "price": Math.round(parseFloat(store['lowest'])),
+            "price": Math.round(store['lowest']),
             "date": time2str(parseInt(store['min_stamp']) * 1000)
         },
         day30: {
@@ -468,8 +440,7 @@ function request_history_price(id, type, callback) {
             'Sec-Fetch-Mode': 'no-cors',
             'Sec-Fetch-Dest': 'script',
             'Referer': item_url,
-            'Accept-Language': 'zh-CN,zh;q=0.9',
-            'Cookie': `gwdang_permanent_id=${genUUID()};`
+            'Accept-Language': 'zh-CN,zh;q=0.9'
         },
         timeout: 2000
     };
@@ -792,20 +763,6 @@ function checkVersion(callback = () => { }) {
     } else {
         callback();
     }
-}
-
-function genUUID() {
-    var s = [];
-    var hexDigits = "0123456789abcdef";
-    for (var i = 0; i < 36; i++) {
-        s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
-    }
-    s[14] = "4";  // bits 12-15 of the time_hi_and_version field to 0010
-    s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);  // bits 6-7 of the clock_seq_hi_and_reserved to 01
-    s[8] = s[13] = s[18] = s[23] = "-";
- 
-    var uuid = s.join("");
-    return uuid;
 }
 
 function isUndefined(obj) {
