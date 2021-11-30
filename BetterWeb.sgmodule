@@ -1,0 +1,43 @@
+#!name=BetterWeb
+#!desc=网站界面优化
+
+[Header Rewrite]
+#> 知乎重写到桌面版
+^https:\/\/www\.zhihu\.com\/ header-replace User-Agent ”Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36$2“
+^https://www\.zhihu\.com\/(question|topic) header-replace User-Agent ”Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36“
+
+#> 百度网盘重写到桌面版
+^https:\/\/pan\.baidu\.com header-replace User-Agent ”Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36$2“
+#> 百度防跳转
+^https?:\/\/.*\.baidu\.com header-replace User-Agent ”Mozilla/5.0 (iPhone; CPU iPhone OS 13_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/16C50 Quark/604.1 T7/10.3 SearchCraft/2.6.3 (Baidu; P1 8.0.0)“
+
+#> CSDN重写到桌面版
+^https:\/\/blog\.csdn\.net\/ header-replace User-Agent ”Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36$2“
+
+[URL Rewrite]
+#> 知乎
+# 不跳转应用商店
+^https:\/\/oia\.zhihu\.com\/answers\/([0-9]+)\?.* https://www.zhihu.com/answer/$1 307
+^https:\/\/oia\.zhihu\.com\/articles\/([0-9]+)\?.* https://zhuanlan.zhihu.com/p/$1  307
+# 去掉知乎跳转第三方网站的中间页面
+^https?:\/\/link\.zhihu\.com/\?target=(https?)%3A//(.*) $1://$2 307
+
+[Script]
+#> 知乎
+知乎优化 = type=http-response,requires-body=1,max-size=0,pattern=^https:\/\/www\.zhihu\.com\/question,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/zhihux.js
+知乎优化 = type=http-response,requires-body=1,max-size=0,pattern=^https:\/\/www\.zhihu\.com\/topic,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/zhihu.js
+
+#> 百度网盘
+百度网盘优化 = type=http-response,requires-body=1,max-size=0,pattern=^https:\/\/pan\.baidu\.com,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/baidupan.js
+
+#> CSDN
+CSDN优化 = type=http-response,requires-body=1,max-size=0,pattern=^https:\/\/blog\.csdn\.net\/,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/csdn.js
+
+#> google相关重写
+# 去除url中的其他参数
+google去URL = type=http-request,requires-body=1,max-size=0,pattern=https:\/\/www\.google\.com\/(m|search).+(q=[^&]+),script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/simplifyurl.js
+# 自动翻页
+EndlessGoogle = type=http-response,pattern=https:\/\/www\.google\.com\/(m|search),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/endlessgoogle.js,script-update-interval=-1
+
+[MITM]
+hostname = %APPEND% oia.zhihu.com, link.zhihu.com, www.zhihu.com, pan.baidu.com, *.baidu.com, blog.csdn.net, *.openinstall.io, www.google.com
