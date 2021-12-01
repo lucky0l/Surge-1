@@ -7,6 +7,8 @@ DOMAIN-SUFFIX,aixifan.com
 DOMAIN-SUFFIX,acfun.cn
 DOMAIN-SUFFIX,ourdvsss.com
 DOMAIN-SUFFIX,bilivideo.cn
+USER-AGENT,Bilibili
+USER-AGENT,bili-universal
 DOMAIN-SUFFIX,bilivideo.com
 DOMAIN-SUFFIX,smtcdns.net
 DOMAIN-SUFFIX,biliapi.com
