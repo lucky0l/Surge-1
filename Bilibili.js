@@ -146,6 +146,7 @@ if (magicJS.read(blackKey)) {
             delete obj["data"]["sections_v2"][index].tip_title;
             obj["data"]["sections_v2"][index]["items"] = items;
           });
+          delete obj["data"].live_tip;
           body = JSON.stringify(obj);
         } catch (err) {
           magicJS.logError(`我的页面处理出现异常：${err}`);
