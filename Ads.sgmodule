@@ -218,7 +218,7 @@ DOMAIN-SUFFIX,cupid.iqiyi.com,REJECT
 # J
 # > JD - api.m.jd.com
 # ^https?:\/\/api\.m\.jd.com\/client\.action\?functionId=start - reject
-^https?:\/\/api\.m\.jd.com\/client\.action\?functionId=queryMaterialAdverts - reject
+# ^https?:\/\/api\.m\.jd.com\/client\.action\?functionId=queryMaterialAdverts - reject
 ^https?:\/\/(bdsp-x|dsp-x)\.jd\.com\/adx\/ - reject
 # > JiaXiaoeDianTong - api.jxedt.com
 ^https?:\/\/api\.jxedt\.com\/ad\/ - reject
