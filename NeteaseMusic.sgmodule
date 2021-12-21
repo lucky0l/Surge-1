@@ -4,6 +4,8 @@
 
 [Rule]
 URL-REGEX,^https?:\/\/.+\/eapi\/(ad|abtest|sp|hot|log|mlivestream|store|mlog|search/(specialkeyword|defaultkeyword|hot)),REJECT-TINYGIF
+DOMAIN,clientlog.music.163.com,REJECT
+DOMAIN,clientlog3.music.163.com,REJECT
 DOMAIN,ad.bn.netease.com,REJECT
 DOMAIN,ad.yixin.im,REJECT
 DOMAIN,admusicpic.music.126.net,REJECT
