@@ -29,7 +29,7 @@ DOMAIN,admusicpic.music.126.net,REJECT
 DOMAIN,iadmat.nosdn.127.net,REJECT
 DOMAIN,iadmusicmat.music.126.net,REJECT
 DOMAIN,iadmusicmatvideo.music.126.net,REJECT
-URL-REGEX,^https?:\/\/.+\/eapi\/(ad|log)\/
+URL-REGEX,^https?:\/\/.+\/eapi\/(ad|log)\/,REJECT
 
 [URL Rewrite]
 ^https?:\/\/interface\.music\.163\.com\/eapi\/ad - reject
