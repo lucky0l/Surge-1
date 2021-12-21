@@ -4,11 +4,12 @@
 
 [Rule]
 URL-REGEX,^https?:\/\/.+\/eapi\/(ad|abtest|sp|hot|log|mlivestream|store|mlog|search/(specialkeyword|defaultkeyword|hot)),REJECT-TINYGIF
-AND,((URL-REGEX,^https?:\/\/.+\/api\/feedback\/client\/log.*), (USER-AGENT,NeteaseMusic)),REJECT-TINYGIF
+AND,((URL-REGEX,^https?:\/\/.*\/api\/feedback\/client\/log.*), (USER-AGENT,NeteaseMusic)),REJECT-TINYGIF
 DOMAIN,clientlog.music.163.com,REJECT
 DOMAIN,clientlog3.music.163.com,REJECT
 DOMAIN,ad.bn.netease.com,REJECT
 DOMAIN,ad.yixin.im,REJECT
+DOMAIN-SUFFIX,netease.im,REJECT
 DOMAIN,admusicpic.music.126.net,REJECT
 DOMAIN,iadmat.nosdn.127.net,REJECT
 DOMAIN,iadmusicmat.music.126.net,REJECT
