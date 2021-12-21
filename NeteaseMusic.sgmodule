@@ -4,6 +4,7 @@
 
 [Rule]
 URL-REGEX,https?://interface3?.music.163.com/eapi/(ad|abtest|sp|hot|mlivestream|store|mlog|search/(specialkeyword|defaultkeyword|hot)),REJECT-TINYGIF
+URL-REGEX,https?://interface3?.music.163.com.163jiasu.com/eapi/(ad|abtest|sp|hot|mlivestream|store|mlog|search/(specialkeyword|defaultkeyword|hot)),REJECT-TINYGIF
 AND,((USER-AGENT,%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90*), (OR,((NOT,((DOMAIN-SUFFIX,music.126.net))), (DOMAIN-KEYWORD,admusic)))),REJECT-TINYGIF
 USER-AGENT,neteasemusic*,REJECT-TINYGIF
 DOMAIN,ad.bn.netease.com,REJECT
@@ -27,6 +28,7 @@ URL-REGEX,^https?:\/\/.+\/eapi\/(ad|log)\/,REJECT
 
 [URL Rewrite]
 ^https?:\/\/interface\.music\.163\.com\/eapi\/ad - reject
+^https?:\/\/interface\.music\.163\.com\.163jiasu\.com\/eapi\/ad - reject
 ^https?:\/\/iadmusicmat\.music.126.net\/.*jpg$ - reject
 ^https?:\/\/p\.c\.music\.126.net\/.*jpg$ - reject
 ^https?:\/\/.+.127.net\/ad - reject
@@ -41,4 +43,4 @@ URL-REGEX,^https?:\/\/.+\/eapi\/(ad|log)\/,REJECT
 ^https?:\/\/p[4](c)?.music.126.net\/\w+==\/10995\d{13}.jpg$ - reject
 
 [MITM]
-hostname = %APPEND% interface.music.163.com, iadmusicmat.music.126.net, p1.music.126.net
+hostname = %APPEND% interface.music.163.com, interface.music.163.com.163jiasu.com, iadmusicmat.music.126.net, p1.music.126.net
