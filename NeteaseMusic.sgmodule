@@ -7,7 +7,6 @@ URL-REGEX,https?://interface3?.music.163.com/eapi/(ad|abtest|sp|hot|mlivestream|
 AND,((USER-AGENT,%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90*), (OR,((NOT,((DOMAIN-SUFFIX,music.126.net))), (DOMAIN-KEYWORD,admusic)))),REJECT-TINYGIF
 AND,((USER-AGENT,NeteaseMusic*), (NOT,((URL-REGEX,https?://interface3?.music.163.com)))),REJECT-TINYGIF
 USER-AGENT,neteasemusic*,REJECT-TINYGIF
-URL-REGEX,^https?:\/\/.+\/eapi\/(ad|log)\/,REJECT
 DOMAIN,ad.bn.netease.com,REJECT
 DOMAIN,ad.yixin.im,REJECT
 DOMAIN,admusicpic.music.126.net,REJECT
@@ -21,12 +20,18 @@ DOMAIN,yt-adp.ws.126.net,REJECT
 DOMAIN-SUFFIX,mini1.cn,REJECT
 DOMAIN-SUFFIX,nurobiz.com,REJECT
 DOMAIN-SUFFIX,norubiz.com,REJECT
+DOMAIN,admusicpic.music.126.net,REJECT
+DOMAIN,iadmat.nosdn.127.net,REJECT
+DOMAIN,iadmusicmat.music.126.net,REJECT
+DOMAIN,iadmusicmatvideo.music.126.net,REJECT
+URL-REGEX,^https?:\/\/.+\/eapi\/(ad|log)\/,REJECT
 
 [URL Rewrite]
-^https?:\/\/.+\/eapi\/(ad|evenet|log)\/ - reject
 ^https?:\/\/interface\.music\.163\.com\/eapi\/ad - reject
 ^https?:\/\/iadmusicmat\.music.126.net\/.*jpg$ - reject
+^https?:\/\/p\.c\.music\.126.net\/.*jpg$ - reject
 ^https?:\/\/.+.127.net\/ad - reject
+^https?:\/\/.+\/eapi\/(ad|evenet|log)\/ - reject
 ^https?:\/\/c.m.163.com\/nc\/gl\/ - reject
 ^https?:\/\/g1.163.com\/madfeedback - reject
 ^https?:\/\/img1.126.net\/.+dpi=\w{7,8} - reject
