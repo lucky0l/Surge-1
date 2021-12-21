@@ -273,7 +273,11 @@ DOMAIN-SUFFIX,cupid.iqiyi.com,REJECT
 # > NetEase CloudMusic - interface*.music.163.com
 ^https?:\/\/iadmusicmat\.music\.126\.net\/.+\.(jpg|mp4) - reject
 ^https?:\/\/m\.ads\.8le8le\.com\/adShow - reject
-^https?:\/\/interface(\d)?\.music\.163\.com\/eapi\/(ad|abtest|banner|cloudvideo|event|experiment|mlivestream|mlog|msg|rncache|socialsquare|sp|store|videotimeline|webcache|hot\/(?!search)|comment\/(banner|hotwall|tips)|content\/exposure\/comment\/banner|(usersafe\/)?pl\/count) - reject
+^https?:\/\/interface3?\.music\.163\.com\/eapi\/(ad|abtest|sp|hot|log|mlivestream|store|mlog|search/(specialkeyword|defaultkeyword|hot)) url reject-200
+^https?:\/\/((25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\/eapi\/ad\/ url reject-200
+^http?:\/\/music\.163\.com\/eapi\/ad\/loading\/get url reject-img
+^http?:\/\/music\.163\.com\/eapi\/pl\/count url reject-200
+^http?:\/\/music\.163\.com\/api\/feedback\/client url reject-200
 # > NetEase You - support.you.163.com
 ^https?:\/\/support\.you\.163\.com\/xhr\/boot\/getBootMedia\.json - reject
 # > NetEase SnailRead - p.du.163.com
