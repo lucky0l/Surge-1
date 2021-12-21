@@ -10,6 +10,10 @@ URL-REGEX,^https?:\/\/api\.m\.jd.com\/client\.action\?functionId=start,REJECT-TI
 URL-REGEX,;^https:\/\/mobile\.cmbchina\.com\/GExternal\/ClientConfigLoad\/GetClientCfg\.aspx,REJECT
 DOMAIN,sessions.bugsnag.com,REJECT-TINYGIF // Added for webpage: sessions.bugsnag.com:443
 DOMAIN-SUFFIX,cupid.iqiyi.com,REJECT
+DOMAIN,admusicpic.music.126.net,REJECT
+DOMAIN,iadmat.nosdn.127.net,REJECT
+DOMAIN,iadmusicmat.music.126.net,REJECT
+DOMAIN,iadmusicmatvideo.music.126.net,REJECT
 
 [URL Rewrite]
 
