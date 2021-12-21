@@ -3,7 +3,7 @@
 #!system=ios
 
 [Rule]
-URL-REGEX,^https?:\/\/.+\/eapi\/(ad|abtest|sp|homepage|hot|log|mlivestream|store|mlog|search/(specialkeyword|defaultkeyword|hot)),REJECT-TINYGIF
+URL-REGEX,^https?:\/\/.+\/eapi\/(ad|abtest|sp|hot|log|mlivestream|store|mlog|search/(specialkeyword|defaultkeyword|hot)),REJECT-TINYGIF
 USER-AGENT,neteasemusic*,REJECT-TINYGIF
 DOMAIN,ad.bn.netease.com,REJECT
 DOMAIN,ad.yixin.im,REJECT
