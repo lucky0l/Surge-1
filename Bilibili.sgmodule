@@ -9,6 +9,7 @@ URL-REGEX,^https?:\/\/api\.bilibili\.com\/x\/v2\/dm\/ad,REJECT
 URL-REGEX,^https?:\/\/api\.bilibili\.com\/pgc\/season\/app\/related\/recommend\?,REJECT
 # BiliBili漫画去广告
 URL-REGEX,^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.comic\/flash,REJECT
+RULE-SET,https://github.com/ATorNinja/Surge/raw/master/Bilibili.list,Bilibili
 
 [URL Rewrite]
 # 去除搜索中的大家都在搜
