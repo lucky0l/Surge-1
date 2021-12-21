@@ -271,7 +271,7 @@ DOMAIN-SUFFIX,cupid.iqiyi.com,REJECT
 # > NetEase MailMaster - appconf.mail.163.com
 ^https?:\/\/appconf\.mail\.163\.com\/mmad\/ - reject
 # > NetEase CloudMusic - interface*.music.163.com
-^https?:\/\/interface(\d)?.music.163.com\/eapi\/ad\/ - reject
+^https?:\/\/interface(\d)?\.music\.163\.com\/eapi\/(ad|abtest|banner|cloudvideo|event|experiment|mlivestream|mlog|msg|socialsquare|sp|store|videotimeline|webcache|hot\/(?!search)|comment\/(banner|hotwall|tips)|content\/exposure\/comment\/banner|(usersafe\/)?pl\/count) - reject
 # > NetEase You - support.you.163.com
 ^https?:\/\/support\.you\.163\.com\/xhr\/boot\/getBootMedia\.json - reject
 # > NetEase SnailRead - p.du.163.com
