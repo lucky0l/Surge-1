@@ -3,9 +3,7 @@
 #!system=ios
 
 [Rule]
-URL-REGEX,https?://interface3?.music.163.com/eapi/(ad|abtest|sp|hot|mlivestream|store|mlog|search/(specialkeyword|defaultkeyword|hot)),REJECT-TINYGIF
-URL-REGEX,https?://interface3?.music.163.com.163jiasu.com/eapi/(ad|abtest|sp|hot|mlivestream|store|mlog|search/(specialkeyword|defaultkeyword|hot)),REJECT-TINYGIF
-AND,((USER-AGENT,%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90*), (OR,((NOT,((DOMAIN-SUFFIX,music.126.net))), (DOMAIN-KEYWORD,admusic)))),REJECT-TINYGIF
+URL-REGEX,^https?:\/\/.+\/eapi\/(ad|abtest|sp|homepage|hot|log|mlivestream|store|mlog|search/(specialkeyword|defaultkeyword|hot)),REJECT-TINYGIF
 USER-AGENT,neteasemusic*,REJECT-TINYGIF
 DOMAIN,ad.bn.netease.com,REJECT
 DOMAIN,ad.yixin.im,REJECT
@@ -17,6 +15,8 @@ DOMAIN,n.3g.163.com,REJECT
 DOMAIN,nex.163.com,REJECT
 DOMAIN,yt-adp.nosdn.127.net,REJECT
 DOMAIN,yt-adp.ws.126.net,REJECT
+DOMAIN,unidesk.alicdn.com,REJECT
+DOMAIN,ossgw.alicdn.com,REJECT
 DOMAIN-SUFFIX,mini1.cn,REJECT
 DOMAIN-SUFFIX,nurobiz.com,REJECT
 DOMAIN-SUFFIX,norubiz.com,REJECT
@@ -24,7 +24,6 @@ DOMAIN,admusicpic.music.126.net,REJECT
 DOMAIN,iadmat.nosdn.127.net,REJECT
 DOMAIN,iadmusicmat.music.126.net,REJECT
 DOMAIN,iadmusicmatvideo.music.126.net,REJECT
-URL-REGEX,^https?:\/\/.+\/eapi\/(ad|log)\/,REJECT
 
 [URL Rewrite]
 ^https?:\/\/interface\.music\.163\.com\/eapi\/ad - reject
