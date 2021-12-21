@@ -13,6 +13,11 @@ DOMAIN,admusicpic.music.126.net,REJECT
 DOMAIN,iadmat.nosdn.127.net,REJECT
 DOMAIN,iadmusicmat.music.126.net,REJECT
 DOMAIN,iadmusicmatvideo.music.126.net,REJECT
+DOMAIN,ye.dun.163yun.com,REJECT
+DOMAIN,log1.cmpassport.com,REJECT
+DOMAIN,dt.netease.im,REJECT
+DOMAIN,outsea.yun-app.net,REJECT
+DOMAIN,crash.163.com,REJECT
 DOMAIN,n.3g.163.com,REJECT
 DOMAIN,nex.163.com,REJECT
 DOMAIN,yt-adp.nosdn.127.net,REJECT
