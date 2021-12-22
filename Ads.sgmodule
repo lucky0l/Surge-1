@@ -121,6 +121,7 @@ DOMAIN-SUFFIX,cupid.iqiyi.com,REJECT
 ^https?:\/\/app-gw\.csdn\.net\/cms-app\/v\d\/home_page\/open_advertisement - reject
 # > Ctrip - m.ctrip.com
 ^https?:\/\/m\.ctrip\.com\/restapi\/[\w\/]+tripAds - reject
+^https?:\/\/m\.ctrip\.com\/restapi\/soa2\/\d+\/json\/getAdsList - reject
 
 # D
 # > DU - app.dewu.com
