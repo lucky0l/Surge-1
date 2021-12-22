@@ -1,4 +1,4 @@
-DOMAIN-SUFFIX,hdslb.com
+USER-AGENT,淘宝
 DOMAIN-SUFFIX,greasyfork.org
 DOMAIN-SUFFIX,ksurl.cn
 DOMAIN-SUFFIX,yximgs.com
@@ -6,14 +6,6 @@ DOMAIN-SUFFIX,eff.com
 DOMAIN-SUFFIX,aixifan.com
 DOMAIN-SUFFIX,acfun.cn
 DOMAIN-SUFFIX,ourdvsss.com
-DOMAIN-SUFFIX,bilivideo.cn
-USER-AGENT,Bilibili*
-USER-AGENT,bili*
-USER-AGENT,淘宝
-DOMAIN-SUFFIX,bilivideo.com
-DOMAIN-SUFFIX,smtcdns.net
-DOMAIN-SUFFIX,biliapi.com
-DOMAIN-SUFFIX,hdslb.com
 DOMAIN-SUFFIX,cmbimg.com
 DOMAIN-SUFFIX,cmbchina.com
 DOMAIN-SUFFIX,ele.me
