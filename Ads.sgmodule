@@ -6,17 +6,11 @@
 force-http-engine-hosts = %APPEND% intl.iqiyi.com, maicai.api.ddxq.mobi, mobileapi-v6.elong.com, wmapi.meituan.com, weibointl.api.weibo.cn, *.ott.cibntv.net
 
 [Rule]
-URL-REGEX,^https?:\/\/api\.m\.jd.com\/client\.action\?functionId=start,REJECT-TINYGIF
 URL-REGEX,;^https:\/\/mobile\.cmbchina\.com\/GExternal\/ClientConfigLoad\/GetClientCfg\.aspx,REJECT
 DOMAIN,sessions.bugsnag.com,REJECT-TINYGIF // Added for webpage: sessions.bugsnag.com:443
 DOMAIN-SUFFIX,cupid.iqiyi.com,REJECT
-DOMAIN,admusicpic.music.126.net,REJECT
-DOMAIN,iadmat.nosdn.127.net,REJECT
-DOMAIN,iadmusicmat.music.126.net,REJECT
-DOMAIN,iadmusicmatvideo.music.126.net,REJECT
 
 [URL Rewrite]
-
 # Redirect HTTP to HTTPS
 ^https?:\/\/(www.)?taobao\.com\/ https://taobao.com/ 302
 ^https?:\/\/(www.)?jd\.com\/ https://www.jd.com/ 302
@@ -89,9 +83,6 @@ DOMAIN,iadmusicmatvideo.music.126.net,REJECT
 ^https?:\/\/intl\.iqiyi\.com\/video\/advertise - reject
 ^https?:\/\/u\d\.iqiyipic\.com\/image\/[\w\/]+\/oad_ - reject
 # ---
-# > bilibili - app.bilibili.com,manga.bilibili.com
-# ^https?:\/\/app\.bilibili\.com\/x\/v\d\/splash\/ - reject
-^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/Flash - reject
 # > Beike - app.api.ke.com
 ^https?:\/\/app\.api\.ke\.com\/config\/config\/bootpage - reject
 # > boohee
@@ -274,14 +265,6 @@ DOMAIN,iadmusicmatvideo.music.126.net,REJECT
 # ---(NetEase)---
 # > NetEase MailMaster - appconf.mail.163.com
 ^https?:\/\/appconf\.mail\.163\.com\/mmad\/ - reject
-# > NetEase CloudMusic - interface*.music.163.com
-^https?:\/\/iadmusicmat\.music\.126\.net\/.+\.(jpg|mp4) - reject
-^https?:\/\/m\.ads\.8le8le\.com\/adShow - reject
-^https?:\/\/interface3?\.music\.163\.com\/eapi\/(ad|abtest|sp|hot|log|mlivestream|store|mlog|search/(specialkeyword|defaultkeyword|hot)) - reject
-^https?:\/\/((25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\/eapi\/ad\/ - reject
-^http?:\/\/music\.163\.com\/eapi\/ad\/loading\/get - reject
-^http?:\/\/music\.163\.com\/eapi\/pl\/count - reject
-^http?:\/\/music\.163\.com\/api\/feedback\/client - reject
 # > NetEase You - support.you.163.com
 ^https?:\/\/support\.you\.163\.com\/xhr\/boot\/getBootMedia\.json - reject
 # > NetEase SnailRead - p.du.163.com
