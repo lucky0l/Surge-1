@@ -127,7 +127,7 @@ DOMAIN-SUFFIX,cupid.iqiyi.com,REJECT
 # > DU - app.dewu.com
 ^https?:\/\/app\.dewu\.com\/api\/v\d\/app\/advertisement\/ - reject
 # > douban - api.douban.com
-^https?:\/\/erebor\.douban\.com\/count\/\?ad= - reject
+^https?:\/\/erebor\.douban\.com\/count\/ - reject
 ^https?:\/\/api\.douban\.com\/v\d\/app_ads\/ - reject
 ^https?:\/\/(\d{1,3}.){1,3}\d{1,3}\/view\/dale-online\/dale_ad\/ - reject
 ^https?:\/\/api.douban.com\/v\d\/app_ads\/common_ads - reject
