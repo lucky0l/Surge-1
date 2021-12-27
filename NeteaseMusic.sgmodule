@@ -32,8 +32,12 @@ DOMAIN,admusicpic.music.126.net,REJECT
 DOMAIN,iadmat.nosdn.127.net,REJECT
 DOMAIN,iadmusicmat.music.126.net,REJECT
 DOMAIN,iadmusicmatvideo.music.126.net,REJECT
+DOMAIN-SUFFIX,music.163.com,UnblockNeteaseMusic
+# USER-AGENT,网易云音乐,UnblockNeteaseMusic
+# USER-AGENT,NeteaseMusic*,UnblockNeteaseMusic
 
 [URL Rewrite]
+^http:\/\/.*\/api\/feedback\/client\/log\?_nmclfl=1$ - reject
 ^https?:\/\/interface\.music\.163\.com\/eapi\/ad - reject
 ^https?:\/\/interface\.music\.163\.com\.163jiasu\.com\/eapi\/ad - reject
 ^https?:\/\/iadmusicmat\.music.126.net\/.*jpg$ - reject
