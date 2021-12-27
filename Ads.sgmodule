@@ -7,7 +7,8 @@ force-http-engine-hosts = %APPEND% intl.iqiyi.com, maicai.api.ddxq.mobi, mobilea
 
 [Rule]
 URL-REGEX,;^https:\/\/mobile\.cmbchina\.com\/GExternal\/ClientConfigLoad\/GetClientCfg\.aspx,REJECT
-DOMAIN,sessions.bugsnag.com,REJECT-TINYGIF // Added for webpage: sessions.bugsnag.com:443
+DOMAIN,sessions.bugsnag.com,REJECT-DROP
+DOMAIN,data.flurry.com,REJECT-DROP
 DOMAIN-SUFFIX,cupid.iqiyi.com,REJECT
 
 [URL Rewrite]
