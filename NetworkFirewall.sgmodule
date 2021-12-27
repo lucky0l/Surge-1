@@ -1,5 +1,5 @@
 #!name=网络防火墙
-#!desc=启用后，如果设备从"蜂窝网络"切换至"WiFi"，则断网10秒，Apple/Surge除外。
+#!desc=启用后，如果设备从"蜂窝网络"切换至"WiFi"，则断网15秒，Apple/Surge除外。
 #!system=ios
 
 [Script]

@@ -7,7 +7,7 @@
 			const startTime = await new Promise(res => {
 				$httpAPI("GET", "v1/traffic", null, (body) => res(body.startTime))
 			});
-			if ((currentTime / 1000) - startTime >= 3) {
+			if ((currentTime / 1500) - startTime >= 3) {
 				const time = JSON.stringify(currentTime);
 				const addTime = $persistentStore.write(time, "WiFi_Timer");
 				const addEnv = $persistentStore.write("1", "Firewall_Env");
