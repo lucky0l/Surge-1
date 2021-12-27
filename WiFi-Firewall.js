@@ -11,7 +11,6 @@
 				const time = JSON.stringify(currentTime);
 				const addTime = $persistentStore.write(time, "WiFi_Timer");
 				const addEnv = $persistentStore.write("1", "Firewall_Env");
-				$notification.post('防火墙开始拦截', '', `已从蜂窝网络切换至 ${network}`);
 			}
 		}
 	} else {
