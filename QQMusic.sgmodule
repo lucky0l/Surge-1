@@ -17,6 +17,13 @@ DOMAIN,oth.str.mdt.qq.com,REJECT
 DOMAIN-SUFFIX,beacon.qq.com,REJECT
 DOMAIN-SUFFIX,sngdia.imtmp.net,REJECT
 DOMAIN-SUFFIX,ivapp.net,REJECT
+DOMAIN-SUFFIX,music.qq.com,DIRECT
+DOMAIN-SUFFIX,music.tc.qq.com,DIRECT
+DOMAIN-SUFFIX,qqmusic.qq.com,DIRECT
+DOMAIN-SUFFIX,tencentmusic.com,DIRECT
+DOMAIN-SUFFIX,y.qq.com,DIRECT
+DOMAIN,aqqmusic.tc.qq.com,DIRECT
+DOMAIN,moo.qq.com,DIRECT
 
 [MITM]
 hostname = %APPEND% us.l.qq.com
