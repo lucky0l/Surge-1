@@ -22,4 +22,4 @@
  hostname = %APPEND% us.l.qq.com
 
  [Script]
- 去广告 = type=http-response,pattern=https:\/\/us\.l\.qq\.com\/exapp,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/ad.js,script-update-interval=0
+ 去广告 = type=http-response,pattern=https:\/\/us\.l\.qq\.com\/exapp,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/QQMusic.js,script-update-interval=0
