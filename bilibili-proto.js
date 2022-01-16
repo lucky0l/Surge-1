@@ -23,6 +23,16 @@ if(url.indexOf("Dynamic/DynAll") !== -1 && method === postMethod){
         dynAllReplyMessage.topicList = null;
         console.log('推荐话题topicList去除');
     }
+
+    if(!dynAllReplyMessage.dynamicList.hasOwnProperty('list') || dynAllReplyMessage.dynamicList.list === null || dynAllReplyMessage.dynamicList.list.length === 0){
+        console.log('动态列表list为空');
+    } else {
+        const startCount = dynAllReplyMessage.dynamicList.list.length;
+        dynAllReplyMessage.dynamicList.list = dynAllReplyMessage.dynamicList.list.filter(item => item.cardType !== 15);
+        const endCount = dynAllReplyMessage.dynamicList.list.length;
+        console.log(`动态列表广告数量:${startCount - endCount}`);
+    }
+
     body = processNewBody(dynAllReplyType.encode(dynAllReplyMessage).finish());
 } else if(url.indexOf("View/View") !== -1 && method === postMethod){
     console.log('视频播放页View/View');
