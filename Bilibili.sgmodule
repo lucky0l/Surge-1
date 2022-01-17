@@ -13,6 +13,7 @@
 *.hdslb.com = server:114.114.114.114
 
 [Rule]
+DOMAIN-SUFFIX, grpc.bilibili.net, REJECT-NO-DROP
 # BiliBili漫画去广告
 URL-REGEX,^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.comic\/flash,REJECT
 RULE-SET,https://github.com/ATorNinja/Surge/raw/master/Bilibili.list,Bilibili
