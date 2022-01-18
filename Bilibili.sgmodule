@@ -2,22 +2,10 @@
 #!desc=BiliBili去广告
 #!system=ios
 
-[Host]
-*.bilibili.com = server:114.114.114.114
-*.biliapi.com = server:114.114.114.114
-*.biliapi.net = server:114.114.114.114
-*.biligame.com = server:114.114.114.114
-*.biligame.net = server:114.114.114.114
-*.bilivideo.com = server:114.114.114.114
-*.bilivideo.cn = server:114.114.114.114
-*.hdslb.com = server:114.114.114.114
-
 [Rule]
 DOMAIN-SUFFIX, grpc.bilibili.net, REJECT-NO-DROP
 # BiliBili漫画去广告
 URL-REGEX,^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.comic\/flash,REJECT
-RULE-SET,https://github.com/ATorNinja/Surge/raw/master/Bilibili.list,Bilibili
-RULE-SET,https://github.com/ATorNinja/Surge/raw/master/bili.list,DIRECT
 
 [URL Rewrite]
 # 去除搜索中的大家都在搜
