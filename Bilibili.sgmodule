@@ -20,6 +20,7 @@ RULE-SET,https://github.com/ATorNinja/Surge/raw/master/Bilibili.list,Bilibili
 RULE-SET,https://github.com/ATorNinja/Surge/raw/master/bili.list,DIRECT
 
 [URL Rewrite]
+^https?:\/\/live-trace\.bilibili\.com - reject
 # 去除搜索中的大家都在搜
 ^https?:\/\/api\.vc\.bilibili\.com\/search_svr\/v\d\/Search\/recommend_words - reject
 # 去除动态中的话题
@@ -44,4 +45,4 @@ BiliBili_标签页处理 = type=http-response,requires-body=1,max-size=0,pattern
 BiliBili_我的页面处理 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/Bilibili.js
 
 [MITM]
-hostname = %APPEND% app.bilibili.com,api.bilibili.com,api.live.bilibili.com,api.vc.bilibili.com,manga.bilibili.com,grpc.biliapi.net
+hostname = %APPEND% app.bilibili.com,api.bilibili.com,api.live.bilibili.com,api.vc.bilibili.com,manga.bilibili.com,grpc.biliapi.net,live-trace.bilibili.com
