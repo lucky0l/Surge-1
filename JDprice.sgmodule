@@ -2,12 +2,18 @@
 #!desc=京东比价&去广告
 
 [Rule]
-URL-REGEX,^https?:\/\/api\.m\.jd.com\/client\.action\?functionId=start,REJECT-TINYGIF
 URL-REGEX,^https:\/\/b?dsp-x\.jd\.com\/adx\/,REJECT
 URL-REGEX,^https:\/\/ms\.jr\.jd\.com\/gw\/generic\/base\/na\/m\/adInfo,REJECT
 URL-REGEX,^https:\/\/ms\.jr\.jd\.com\/gw\/generic\/aladdin\/na\/m\/getLoadingPicture,REJECT
 
 [Script]
+JD开屏 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=start,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/JDAdRemove.js
+JD订单 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=myOrderInfo,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/JDAdRemove.js
+JD物流 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=orderTrackBusiness,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/JDAdRemove.js
+JD首页 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=welcomeHome,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/jdop.js
+JD推荐 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=uniformRecommend,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/jdtj.js
+JD首页推荐 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=getRecommendNewFeedsList,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/jdsp.js
+JD发现 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=discFollowEnterMainPage,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/jds.js
 京东比价 = type=http-response,requires-body=1,max-size=0,pattern=^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig),script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/JDprice.js
 
 [MITM]
