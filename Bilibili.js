@@ -140,6 +140,9 @@ if (magicJS.read(blackKey)) {
             let items = element["items"].filter((e) => {
               return itemList.has(e.id);
             });
+            if (obj["data"]["sections_v2"][index]["title"] === "创作中心") {
+              delete obj["data"]["sections_v2"][index];
+            }
             obj["data"]["sections_v2"][index].button = {};
             delete obj["data"]["sections_v2"][index].be_up_title;
             delete obj["data"]["sections_v2"][index].tip_icon;
