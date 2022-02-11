@@ -143,15 +143,16 @@ if (magicJS.read(blackKey)) {
             let items = element["items"].filter((e) => {
               return itemList.has(e.id);
             });
-            if (obj["data"]["sections_v2"][index].title === "创作中心") {
-              delete obj["data"]["sections_v2"][index].up_title;
-              obj["data"]["sections_v2"].splice(index,1);
-            }
             obj["data"]["sections_v2"][index].button = {};
             delete obj["data"]["sections_v2"][index].be_up_title;
             delete obj["data"]["sections_v2"][index].tip_icon;
             delete obj["data"]["sections_v2"][index].tip_title;
             obj["data"]["sections_v2"][index]["items"] = items;
+          });
+          obj["data"]["sections_v2"].forEach((element, index) => {
+            if (obj["data"]["sections_v2"][index].title === "创作中心") {
+              obj["data"]["sections_v2"].splice(index,1);
+            }
           });
           delete obj["data"].live_tip;
           body = JSON.stringify(obj);
