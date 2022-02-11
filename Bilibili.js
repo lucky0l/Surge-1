@@ -150,7 +150,7 @@ if (magicJS.read(blackKey)) {
             obj["data"]["sections_v2"][index]["items"] = items;
             if (obj["data"]["sections_v2"][index].title === "创作中心") {
               delete obj["data"]["sections_v2"][index].up_title;
-              delete obj["data"]["sections_v2"][index].title;
+              delete obj["data"]["sections_v2"][index];
             }
           });
           delete obj["data"].live_tip;
