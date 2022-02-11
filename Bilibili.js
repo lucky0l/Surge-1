@@ -148,6 +148,10 @@ if (magicJS.read(blackKey)) {
             delete obj["data"]["sections_v2"][index].tip_icon;
             delete obj["data"]["sections_v2"][index].tip_title;
             obj["data"]["sections_v2"][index]["items"] = items;
+            if (obj["data"]["sections_v2"][index].title === "创作中心") {
+              delete obj["data"]["sections_v2"][index].up_title;
+              obj["data"]["sections_v2"][index].title;
+            }
           });
           delete obj["data"].live_tip;
           body = JSON.stringify(obj);
