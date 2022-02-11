@@ -130,24 +130,26 @@ if (magicJS.read(blackKey)) {
           let obj = JSON.parse(magicJS.response.body);
           // 622 为会员购中心, 425 开始为概念版id
           const itemList = new Set([396, 397, 398, 399, 171, 172, 534, 8, 4, 428, 352, 1, 405, 402, 404, 544, 407, 410, 622, 425, 426, 427, 428, 171, 430, 431, 432]);
-          obj["data"]["sections_v2"].forEach((element, index) => {
-            element["items"].forEach((e) => {
-              if (e["id"] === 622) {
-                e["title"] = "会员购";
-                e["uri"] = "bilibili://mall/home";
-              }
+          if (obj["data"]["section_v2"]) {
+            obj["data"]["sections_v2"].forEach((element, index) => {
+              element["items"].forEach((e) => {
+                if (e["id"] === 622) {
+                  e["title"] = "会员购";
+                  e["uri"] = "bilibili://mall/home";
+                }
+              });
+              let items = element["items"].filter((e) => {
+                return itemList.has(e.id);
+              });
+              obj["data"]["sections_v2"][index].button = {};
+              delete obj["data"]["sections_v2"][index].be_up_title;
+              delete obj["data"]["sections_v2"][index].tip_icon;
+              delete obj["data"]["sections_v2"][index].tip_title;
+              obj["data"]["sections_v2"][index]["items"] = items;
             });
-            let items = element["items"].filter((e) => {
-              return itemList.has(e.id);
-            });
-            obj["data"]["sections_v2"][index].button = {};
-            delete obj["data"]["sections_v2"][index].be_up_title;
-            delete obj["data"]["sections_v2"][index].tip_icon;
-            delete obj["data"]["sections_v2"][index].tip_title;
-            obj["data"]["sections_v2"][index]["items"] = items;
-          });
-          delete obj["data"].live_tip;
-          body = JSON.stringify(obj);
+            delete obj["data"].live_tip;
+            body = JSON.stringify(obj);
+          }
         } catch (err) {
           // magicJS.logError(`我的页面处理出现异常：${err}`);
           break;
