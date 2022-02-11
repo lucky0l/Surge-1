@@ -128,6 +128,9 @@ if (magicJS.read(blackKey)) {
       case /^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine/.test(magicJS.request.url):
         try {
           let obj = JSON.parse(magicJS.response.body);
+          if (!obj["data"]["sections_v2"]) {
+            break;
+          }
           // 622 为会员购中心, 425 开始为概念版id
           const itemList = new Set([396, 397, 398, 399, 172, 534, 8, 4, 428, 352, 1, 405, 404, 544, 407, 410, 622, 425, 426, 427, 428, 430, 431, 432]);
           obj["data"]["sections_v2"].forEach((element, index) => {
@@ -140,9 +143,6 @@ if (magicJS.read(blackKey)) {
             let items = element["items"].filter((e) => {
               return itemList.has(e.id);
             });
-            if (obj["data"]["sections_v2"][index]["title"] === "创作中心") {
-              delete obj["data"]["sections_v2"][index];
-            }
             obj["data"]["sections_v2"][index].button = {};
             delete obj["data"]["sections_v2"][index].be_up_title;
             delete obj["data"]["sections_v2"][index].tip_icon;
