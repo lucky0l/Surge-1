@@ -6,7 +6,6 @@ let getMethod = "GET";
 let postMethod = "POST";
 if (url.indexOf("app02.vgtime.com:8080/vgtime-app/api/v2/init/ad.json") != -1 && method == postMethod) {
     //console.log('vgtime-开屏页');
-    let obj = JSON.parse(magicJS.response.body);
     if (body.data == undefined || body.data.ad === undefined) {
         //console.log("body:" + $response.body);
         $notification.post(notifiTitle, "vgtime", "data/ad字段为undefined")
