@@ -32,3 +32,6 @@ if (url.indexOf("app02.vgtime.com:8080/vgtime-app/api/v2/init/ad.json") != -1 &&
         //console.log('成功')
     }
 }
+$done({
+    body
+});
