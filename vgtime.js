@@ -22,7 +22,7 @@ if (url.indexOf("app02.vgtime.com:8080/vgtime-app/api/v2/init/ad.json") != -1 &&
         body.data.ad = null;
         //console.log('成功')
     }
-} else if (url.indexOf("app02.vgtime.com:8080/vgtime-app/api/v3/topic/detail") != -1 && url.endsWith("detail") && method == postMethod) {
+} else if (url.indexOf("app02.vgtime.com:8080/vgtime-app/api/v3/topic/detail") != -1 && method == postMethod) {
     //console.log('vgtime-内容页');
     if (body.data == undefined || body.data.ad === undefined) {
         //console.log("body:" + $response.body);
