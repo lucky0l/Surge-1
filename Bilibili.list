@@ -1,5 +1,9 @@
 # > bilibili
 DOMAIN-SUFFIX,biliapi.net
 DOMAIN-SUFFIX,bilibili.com
+DOMAIN-SUFFIX,biliintl.com
+DOMAIN,p.bstarstatic.com
+DOMAIN,p-bstarstatic.akamaized.net
+DOMAIN,upos-hz-mirrorakam.akamaized.net
 DOMAIN,upos-hz-mirrorakam.akamaized.net
 DOMAIN-KEYWORD,cn-hk-eq-bcache-
