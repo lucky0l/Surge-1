@@ -5,6 +5,10 @@
 URL-REGEX,^https:\/\/b?dsp-x\.jd\.com\/adx\/,REJECT
 URL-REGEX,^https:\/\/ms\.jr\.jd\.com\/gw\/generic\/base\/na\/m\/adInfo,REJECT
 URL-REGEX,^https:\/\/ms\.jr\.jd\.com\/gw\/generic\/aladdin\/na\/m\/getLoadingPicture,REJECT
+DOMAIN,dns.jd.com,REJECT
+DOMAIN,jddebug.com,REJECT
+IP-CIDR,101.124.19.122/32,REJECT
+DOMAIN-SUFFIX,360buyimg.com,DIRECT
 
 [Script]
 JD开屏 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=start,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/JDAdRemove.js
