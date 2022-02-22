@@ -155,6 +155,8 @@ if (magicJS.read(blackKey)) {
             }
           });
           delete obj["data"].live_tip;
+          delete obj.data.vip_section_v2;
+          delete obj.data.vip_section;
           body = JSON.stringify(obj);
         } catch (err) {
           // magicJS.logError(`我的页面处理出现异常：${err}`);
@@ -169,6 +171,19 @@ if (magicJS.read(blackKey)) {
           body = JSON.stringify(obj);
         } catch (err) {
           magicJS.logError(`直播去广告出现异常：${err}`);
+        }
+        break;
+      //屏蔽热搜
+      case /^https?:\/\/app\.bilibili\.com\/x\/v2\/search\/square/.test(magicJS.request.url):
+        try {
+          let obj = JSON.parse(magicJS.response.body);
+          if (obj.data.length > 3): {
+            delete obj.data[0];
+            delete obj.data[3];
+          }
+          body = JSON.stringify(obj);
+        } catch (err) {
+          magicJS.logError(`热搜去广告出现异常：${err}`);
         }
         break;
       // 追番去广告
