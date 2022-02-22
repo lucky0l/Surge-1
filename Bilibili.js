@@ -177,7 +177,7 @@ if (magicJS.read(blackKey)) {
       case /^https?:\/\/app\.bilibili\.com\/x\/v2\/search\/square/.test(magicJS.request.url):
         try {
           let obj = JSON.parse(magicJS.response.body);
-          if (obj.data.length > 3): {
+          if (obj.data.length > 3) {
             delete obj.data[0];
             delete obj.data[3];
           }
