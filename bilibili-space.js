@@ -164,3 +164,4 @@ $task.fetch(Url).then(response => {
   $notify("播放排行获取失败", "", reason.error);
   $done({});
 });
+$done();
