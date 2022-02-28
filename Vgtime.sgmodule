@@ -3,6 +3,7 @@
 
 [Rule]
 DOMAIN,ulogs.umeng.com,REJECT
+DOMAIN,ulogs.umengcloud.com,REJECT
 DOMAIN,errlog.umeng.com,REJECT
 DOMAIN-SUFFIX,vgtime.com, DIRECT
 
