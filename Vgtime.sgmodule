@@ -2,6 +2,7 @@
 #!desc=欢乐时光
 
 [Rule]
+DOMAIN,ulogs.umeng.com,REJECT
 DOMAIN,errlog.umeng.com,REJECT
 DOMAIN-SUFFIX,vgtime.com, DIRECT
 
