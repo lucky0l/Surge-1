@@ -3,7 +3,7 @@
 #!system=ios
 
 [Script]
-captureMode = type=generic,timeout=10,script-path=
+captureMode = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/capMode.js
 // use "module", "title", "icon", "color1", "color2", "color3" or "showHostname" in "argument":
 // captureMode.js = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/capMode.js,argument=title=CaptureMode&module=capturemode&icon=tray.and.arrow.down&color1=#008080&color2=#efc56f&color3=#994714&showHostname=false
 
