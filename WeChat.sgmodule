@@ -20,4 +20,4 @@ Moments = type=http-response,pattern=^https:\/\/mp\.weixin\.qq\.com\/mp\/(getapp
 WeChatAds = type=http-response,pattern=^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/WeChat.js
 
 [MITM]
-hostname = weixin110.qq.com, mp.weixin.qq.com
+hostname = %APPEND% weixin110.qq.com, mp.weixin.qq.com
