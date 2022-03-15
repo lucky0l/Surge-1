@@ -7,3 +7,6 @@ NetInfoPanel=title="",content="",style=info,script-name=net-info-panel.js,update
 
 [Script]
 net-info-panel.js=script-path=https://github.com/ATorNinja/Surge/raw/master/networkcheck.js,type=generic
+
+[Host]
+ip-api.com = 208.95.112.1
