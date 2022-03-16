@@ -54,6 +54,20 @@ if (!v4.primaryAddress && !v6.primaryAddress) {
     }
     try {
       const info = JSON.parse(data);
+      $done({
+        title: wifi.ssid ? wifi.ssid : cellularInfo,
+        content:
+          (v4.primaryAddress ? `IPv4 : ${v4.primaryAddress} \n` : '') +
+          (v6.primaryAddress ? `IPv6 : ${v6.primaryAddress}\n` : '') +
+          (v4.primaryRouter && wifi.ssid ? `Router IPv4 : ${v4.primaryRouter}\n` : '') +
+          (v6.primaryRouter && wifi.ssid ? `Router IPv6 : ${v6.primaryRouter}\n` : '') +
+          `Proxy IP : ${info.query}\n` +
+          `Proxy ISP : ${info.isp}\n` +
+          `Proxy Location : ${getFlagEmoji(info.countryCode)} | ${info.country} - ${info.city
+          }`,
+        icon: wifi.ssid ? 'wifi' : 'simcard',
+        'icon-color': wifi.ssid ? '#005CAF' : '#F9BF45',
+      });
     } catch(err) {
       $done({
         title: '發生錯誤',
@@ -62,20 +76,6 @@ if (!v4.primaryAddress && !v6.primaryAddress) {
         'icon-color': '#CB1B45',
       });
     } 
-    $done({
-      title: wifi.ssid ? wifi.ssid : cellularInfo,
-      content:
-        (v4.primaryAddress ? `IPv4 : ${v4.primaryAddress} \n` : '') +
-        (v6.primaryAddress ? `IPv6 : ${v6.primaryAddress}\n` : '') +
-        (v4.primaryRouter && wifi.ssid ? `Router IPv4 : ${v4.primaryRouter}\n` : '') +
-        (v6.primaryRouter && wifi.ssid ? `Router IPv6 : ${v6.primaryRouter}\n` : '') +
-        `Proxy IP : ${info.query}\n` +
-        `Proxy ISP : ${info.isp}\n` +
-        `Proxy Location : ${getFlagEmoji(info.countryCode)} | ${info.country} - ${info.city
-        }`,
-      icon: wifi.ssid ? 'wifi' : 'simcard',
-      'icon-color': wifi.ssid ? '#005CAF' : '#F9BF45',
-    });
   });
 }
 
