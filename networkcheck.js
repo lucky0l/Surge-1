@@ -44,7 +44,7 @@ if (!v4.primaryAddress && !v6.primaryAddress) {
     }
   }
   $httpClient.get('http://ip-api.com/json', function (error, response, data) {
-    if (error) {
+    if (error or data == undefined) {
       $done({
         title: '發生錯誤',
         content: '無法獲得目前網路資訊\n請檢查網際網路狀態後重試',
