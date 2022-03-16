@@ -44,7 +44,7 @@ if (!v4.primaryAddress && !v6.primaryAddress) {
     }
   }
   $httpClient.get('http://ip-api.com/json', function (error, response, data) {
-    if (error or data == undefined) {
+    if (error) {
       $done({
         title: '發生錯誤',
         content: '無法獲得目前網路資訊\n請檢查網際網路狀態後重試',
@@ -52,8 +52,16 @@ if (!v4.primaryAddress && !v6.primaryAddress) {
         'icon-color': '#CB1B45',
       });
     }
-
-    const info = JSON.parse(data);
+    try {
+      const info = JSON.parse(data);
+    } catch(err) {
+      $done({
+        title: '發生錯誤',
+        content: '無法獲得目前網路資訊\n請檢查網際網路狀態後重試',
+        icon: 'wifi.exclamationmark',
+        'icon-color': '#CB1B45',
+      });
+    } 
     $done({
       title: wifi.ssid ? wifi.ssid : cellularInfo,
       content:
