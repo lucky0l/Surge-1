@@ -2,6 +2,9 @@
 #!desc=BiliBili去广告
 #!system=ios
 
+[General]
+always-real-ip = *.mcdn.bilivideo.cn
+
 [Rule]
 IP-CIDR,203.107.1.1/24,REJECT-NO-DROP,no-resolve
 # BiliBili漫画去广告
