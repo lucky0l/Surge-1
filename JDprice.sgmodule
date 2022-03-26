@@ -7,7 +7,7 @@ URL-REGEX,^https:\/\/ms\.jr\.jd\.com\/gw\/generic\/base\/na\/m\/adInfo,REJECT
 URL-REGEX,^https:\/\/ms\.jr\.jd\.com\/gw\/generic\/aladdin\/na\/m\/getLoadingPicture,REJECT
 DOMAIN,dns.jd.com,REJECT
 DOMAIN,jddebug.com,REJECT
-IP-CIDR,101.124.19.122/32,REJECT
+IP-CIDR,101.124.19.122/32,REJECT,no-resolve
 DOMAIN-SUFFIX,360buyimg.com,DIRECT
 
 [Script]
