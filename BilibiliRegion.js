@@ -242,7 +242,7 @@ function GetRawInfo(t) {
 					})
 				}
 				let et = ((Date.now() - st) / 1000).toFixed(2);
-				console.log(`Douban rating: \n${t}\n${res.length} movie info searched. (${et} s)\n`);
+				// console.log(`Douban rating: \n${t}\n${res.length} movie info searched. (${et} s)\n`);
 			}
 			resolve(res);
 		})
