@@ -1,5 +1,6 @@
 #!name=JD
 #!desc=京东去广告
+#!system=ios
 
 [Rule]
 URL-REGEX,^https:\/\/b?dsp-x\.jd\.com\/adx\/,REJECT

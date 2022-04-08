@@ -1,0 +1,9 @@
+#!name=EggplantCloud
+#!desc=茄子云盘解锁会员
+#!system=ios
+
+[Script]
+EggplantCloud = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/121\.199\.197\.35:9293\/api\/ios\/getAdClick$,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/EggplantCloudCrack.js
+
+[MITM]
+hostname = %INSERT% 121.199.197.35:9293
