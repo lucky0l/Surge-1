@@ -17,13 +17,17 @@ DOMAIN,oth.str.mdt.qq.com,REJECT
 DOMAIN-SUFFIX,beacon.qq.com,REJECT
 DOMAIN-SUFFIX,sngdia.imtmp.net,REJECT
 DOMAIN-SUFFIX,ivapp.net,REJECT
-DOMAIN-SUFFIX,music.qq.com,DIRECT
-DOMAIN-SUFFIX,music.tc.qq.com,DIRECT
-DOMAIN-SUFFIX,qqmusic.qq.com,DIRECT
-DOMAIN-SUFFIX,tencentmusic.com,DIRECT
-DOMAIN-SUFFIX,y.qq.com,DIRECT
-DOMAIN,aqqmusic.tc.qq.com,DIRECT
-DOMAIN,moo.qq.com,DIRECT
+# UA
+USER-AGENT, *QQMusic/*, Direct
+USER-AGENT, QQ%E9%9F%B3%E4%B9%90/*, Direct
+# Web
+DOMAIN-SUFFIX, y.qq.com, Direct
+DOMAIN-SUFFIX, music.qq.com, Direct
+DOMAIN-SUFFIX, aqqmusic.tc.qq.com, Direct
+DOMAIN-SUFFIX, y.gtimg.cn, Direct
+DOMAIN-SUFFIX, kg.qq.com, Direct
+DOMAIN-SUFFIX, stream.qqmusic.qq.com, Direct
+URL-REGEX, ^http://.*music.tc.qq.com, Direct
 
 [MITM]
 hostname = %APPEND% us.l.qq.com
