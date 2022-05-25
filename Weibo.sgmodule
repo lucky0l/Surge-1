@@ -5,7 +5,7 @@
 ^https?:\/\/m\.weibo\.cn\/status\/banner - reject
 
 [Script]
-weibo = type=http-response,pattern=^https?:\/\/m\.weibo\.cn\/(comments\/hotflow|api\/attitudes\/create),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/weibo.js
+weibo = type=http-response,pattern=^https?:\/\/m\.weibo\.cn\/(comments\/hotflow|api\/attitudes\/create|video\/createCert),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ATorNinja/Surge/master/weibo.js
 
 [MITM]
 hostname = %APPEND% m.weibo.cn
