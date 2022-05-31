@@ -478,10 +478,10 @@ https://ad.12306.cn/* - reject
 [Map Local]
 ^(http|https):\/\/dns.weixin.qq.com\/cgi-bin\/micromsg-bin\/newgetdns data="https://github.com/ATorNinja/Surge/raw/master/empty.json"
 ^https?:\/\/.+extshort\.weixin\.qq\.com\/cgi-bin\/mmoc-bin\/ad\/ data="https://github.com/ATorNinja/Surge/raw/master/empty.json"
-^https?:\/\/.+\.weixin\.qq\.com\/.+report data="https://https://github.com/ATorNinja/Surge/raw/master/empty.json"
+^https?:\/\/.+\.weixin\.qq\.com\/.+report data="https://github.com/ATorNinja/Surge/raw/master/empty.json"
 ^https:\/\/mp\.weixin\.qq\.com\/mp\/relatedarticle data="https://github.com/ATorNinja/Surge/raw/master/empty.json"
-^https?:\/\/mp\.weixin\.qq\.com\/mp\/.+ad\? data="https://https://github.com/ATorNinja/Surge/raw/master/empty.json"
-^https?:\/\/mp\.weixin\.qq\.com\/mp\/.+monitor\? data="https://https://github.com/ATorNinja/Surge/raw/master/empty.json"
+^https?:\/\/mp\.weixin\.qq\.com\/mp\/.+ad\? data="https://github.com/ATorNinja/Surge/raw/master/empty.json"
+^https?:\/\/mp\.weixin\.qq\.com\/mp\/.+monitor\? data="https://github.com/ATorNinja/Surge/raw/master/empty.json"
 ^https?:\/\/mp\.weixin\.qq\.com\/bizmall\/reward\? data="https://github.com/ATorNinja/Surge/raw/master/empty.json"
 ^https?:\/\/mp\.weixin\.qq\.com\/mp\/appmsg_weapp data="https://github.com/ATorNinja/Surge/raw/master/empty.json"
 
