@@ -25,6 +25,14 @@ if(url.indexOf("Dynamic/DynAll") !== -1 && method === postMethod){
         dynAllReplyMessage.topicList = null;
         // console.log('推荐话题topicList去除');
     }
+    
+    if(!dynAllReplyMessage.hasOwnProperty('upList') || dynAllReplyMessage.upList === null){
+        // console.log('upList为空');
+    } else {
+        needProcessFlag = true;
+        dynAllReplyMessage.upList = null;
+        // console.log('最常访问upList去除');
+    }
 
     if(!dynAllReplyMessage.dynamicList.hasOwnProperty('list') || dynAllReplyMessage.dynamicList.list === null || dynAllReplyMessage.dynamicList.list.length === 0){
         // console.log('动态列表list为空');
