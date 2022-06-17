@@ -6,6 +6,7 @@
 always-real-ip = *.mcdn.bilivideo.cn
 
 [Rule]
+DOMAIN,grpc.biliapi.net,REJECT-NO-DROP
 IP-CIDR,203.107.1.1/24,REJECT-NO-DROP,no-resolve
 # BiliBili漫画去广告
 URL-REGEX,^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.comic\/flash,REJECT
