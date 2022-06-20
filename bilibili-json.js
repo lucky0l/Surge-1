@@ -100,6 +100,7 @@ if (!body.hasOwnProperty('data')) {
                 }
                 return true;
             });
+            body['data']['items'] = body['data']['items'].filter(element => !(element.hasOwnProperty('ad_info') || element.hasOwnProperty('banner_item')));
         }
     } else {
         $notification.post(notifiTitle, "路径/请求方法匹配错误:", method + "," + url);
