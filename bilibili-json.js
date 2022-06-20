@@ -12,12 +12,14 @@ if (!body.hasOwnProperty('data')) {
 } else {
     if (url.indexOf("x/v2/splash") !== -1 && method === getMethod) {
         // console.log('开屏页' + (url.indexOf("splash/show") !== -1 ? 'show' : 'list'));
-        if (!body.data.hasOwnProperty('show')) {
-            // 有时候返回的数据没有show字段
-            // console.log('数据无show字段');
-        } else {
-            delete body.data.show;
-            // console.log('成功');
+        if (body.hasOwnProperty('data')) {
+            if (!body.data.hasOwnProperty('show')) {
+                // 有时候返回的数据没有show字段
+                // console.log('数据无show字段');
+            } else {
+                delete body.data.show;
+                // console.log('成功');
+            } 
         }
     } else if (url.indexOf("resource/show/tab/v2") !== -1 && method === getMethod) {
         // console.log('tab修改');
