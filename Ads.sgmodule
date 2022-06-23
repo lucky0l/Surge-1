@@ -3,7 +3,7 @@
 #!system=ios
 
 [General]
-force-http-engine-hosts = %APPEND% intl.iqiyi.com, maicai.api.ddxq.mobi, mobileapi-v6.elong.com, wmapi.meituan.com, weibointl.api.weibo.cn, *.ott.cibntv.net, *.weixin.qq.com
+force-http-engine-hosts = %APPEND% intl.iqiyi.com, maicai.api.ddxq.mobi, mobileapi-v6.elong.com, wmapi.meituan.com, weibointl.api.weibo.cn, *.ott.cibntv.net, *.weixin.qq.com,*.qpic.cn
 
 [Rule]
 URL-REGEX,;^https:\/\/mobile\.cmbchina\.com\/GExternal\/ClientConfigLoad\/GetClientCfg\.aspx,REJECT
