@@ -15,7 +15,7 @@ if (!body.hasOwnProperty('data')) {
     // console.log("body:" + $response.body);
     $notification.post(notifiTitle, url, "data字段错误");
 } else {
-    if (url.indexOf("x/v2/splash") !== -1 && method === getMethod) {
+    if (url.includes("x/v2/splash") && method === getMethod) {
         // console.log('开屏页' + (url.indexOf("splash/show") !== -1 ? 'show' : 'list'));
         if (body.data != null) {
             if (!body.data.hasOwnProperty('show')) {
@@ -26,7 +26,7 @@ if (!body.hasOwnProperty('data')) {
                 // console.log('成功');
             } 
         }
-    } else if (url.indexOf("resource/show/tab/v2") !== -1 && method === getMethod) {
+    } else if (url.includes("resource/show/tab/v2") && method === getMethod) {
         // console.log('tab修改');
         // 顶部右上角
         if (!body.data.hasOwnProperty('top')) {
@@ -59,7 +59,7 @@ if (!body.hasOwnProperty('data')) {
             });
             fixPos(body.data.bottom);
         }
-    } else if (url.indexOf("x/v2/feed/index") !== -1 && method === getMethod) {
+    } else if (url.includes("x/v2/feed/index") && method === getMethod) {
         // console.log('推荐页');
         if (!body.data.hasOwnProperty('items')) {
             // console.log("body:" + $response.body);
