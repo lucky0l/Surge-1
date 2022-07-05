@@ -2,6 +2,11 @@ const url = $request.url;
 const method = $request.method;
 const getMethod = "GET";
 const notifiTitle = "bilibili-json";
+if ($response.body === undefined) {
+    // 有undefined的情况
+    // console.log(`$response.body为undefined:${url}`);
+    $done({});
+}
 let body = JSON.parse($response.body);
 
 
@@ -26,7 +31,7 @@ if (!body.hasOwnProperty('data')) {
         // 顶部右上角
         if (!body.data.hasOwnProperty('top')) {
             // console.log("body:" + $response.body);
-            $notification.post(notifiTitle, 'tab', "top字段错误");
+            // $notification.post(notifiTitle, 'tab', "top字段错误");
         } else {
             body.data.top = body.data.top.filter(item => {
                 if (item.name === '游戏中心') {
@@ -58,7 +63,7 @@ if (!body.hasOwnProperty('data')) {
         // console.log('推荐页');
         if (!body.data.hasOwnProperty('items')) {
             // console.log("body:" + $response.body);
-            $notification.post(notifiTitle, '推荐页', "items字段错误");
+            // $notification.post(notifiTitle, '推荐页', "items字段错误");
         } else {
             body.data.items = body.data.items.filter(i => {
                 if (i.hasOwnProperty('card_type') && i.hasOwnProperty('card_goto')) {
@@ -67,12 +72,12 @@ if (!body.hasOwnProperty('data')) {
                     if (cardType === 'banner_v8' && cardGoto === 'banner') {
                         if (!i.hasOwnProperty('banner_item')) {
                             // console.log("body:" + $response.body);
-                            $notification.post(notifiTitle, '推荐页', "banner_item错误");
+                            // $notification.post(notifiTitle, '推荐页', "banner_item错误");
                         } else {
                             for (const v of i.banner_item) {
                                 if (!v.hasOwnProperty('type')) {
                                     // console.log("body:" + $response.body);
-                                    $notification.post(notifiTitle, '推荐页', "type错误");
+                                    // $notification.post(notifiTitle, '推荐页', "type错误");
                                 } else {
                                     if (v.type === 'ad') {
                                         // console.log('banner广告');
@@ -98,14 +103,14 @@ if (!body.hasOwnProperty('data')) {
                     }
                 } else {
                     // console.log("body:" + $response.body);
-                    $notification.post(notifiTitle, '推荐页', "无card_type/card_goto");
+                    // $notification.post(notifiTitle, '推荐页', "无card_type/card_goto");
                 }
                 return true;
             });
             body['data']['items'] = body['data']['items'].filter(element => !(element.hasOwnProperty('ad_info') || element.hasOwnProperty('banner_item')));
         }
     } else {
-        $notification.post(notifiTitle, "路径/请求方法匹配错误:", method + "," + url);
+        // $notification.post(notifiTitle, "路径/请求方法匹配错误:", method + "," + url);
     }
 }
 
