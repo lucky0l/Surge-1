@@ -5,7 +5,7 @@
 如需禁用豆瓣评分或策略通知, 可前往BoxJs设置.
 BoxJs订阅地址: https://raw.githubusercontent.com/NobyDa/Script/master/NobyDa_BoxJs.json
 
-Update: 2022.01.26
+Update: 2022.07.05
 Author: @NobyDa
 Use: Surge, QuanX, Loon
 
@@ -34,41 +34,41 @@ QX用户注: 使用切换地区功能请确保您的QX=>其他设置=>温和策�
 Surge 4.7+ 远程脚本配置 :
 ****************************
 [Script]
-Bili Region = type=http-response,pattern=^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/(pgc\/view\/v\d\/app\/season|x\/v\d\/search\/defaultwords)\?access_key,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js
+Bili Region = type=http-response,pattern=^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/(pgc\/view\/v\d\/app\/season|x\/offline\/version)\?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js
 
 #可选, 适用于搜索指定地区的番剧
 Bili Search = type=http-request,pattern=^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/x\/v\d\/search(\/type)?\?.+?%20(%E6%B8%AF|%E5%8F%B0|%E4%B8%AD)&,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js
 
 [MITM]
-hostname = ap?.bilibili.com, ap?.biliapi.net
+hostname = ap?.bili*i.com, ap?.bili*i.net
 
 ****************************
 Quantumult X 远程脚本配置 :
 ****************************
 [rewrite_local]
-^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/(pgc\/view\/v\d\/app\/season|x\/v\d\/search\/defaultwords)\?access_key url script-response-body https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js
+^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/(pgc\/view\/v\d\/app\/season|x\/offline\/version)\? url script-response-body https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js
 
 #可选, 适用于搜索指定地区的番剧
 ^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/x\/v\d\/search(\/type)?\?.+?%20(%E6%B8%AF|%E5%8F%B0|%E4%B8%AD)& url script-request-header https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js
 
 [mitm]
-hostname = ap?.bilibili.com, ap?.biliapi.net
+hostname = ap?.bili*i.com, ap?.bili*i.net
 
 [filter_local]
-#可选, 由于qx纯tun特性, 不添加规则可能会导致脚本失效.
+#可选, 由于qx纯tun特性, 不添加规则可能会导致脚本失效. https://github.com/NobyDa/Script/issues/382
 ip-cidr, 203.107.1.1/24, reject
 
 ****************************
 Loon 远程脚本配置 :
 ****************************
 [Script]
-http-response ^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/(pgc\/view\/v\d\/app\/season|x\/v\d\/search\/defaultwords)\?access_key script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js, requires-body=true, tag=bili自动地区
+http-response ^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/(pgc\/view\/v\d\/app\/season|x\/offline\/version)\? script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js, requires-body=true, tag=bili自动地区
 
 #可选, 适用于搜索指定地区的番剧
-http-request ^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/x\/v\d\/search(\/type)?\?.+?%20(%E6%B8%AF|%E5%8F%B0|%E4%B8%AD)& script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js, requires-body=true, tag=bili自动地区(搜索)
+http-request ^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/x\/v\d\/search(\/type)?\?.+?%20(%E6%B8%AF|%E5%8F%B0|%E4%B8%AD)& script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js, tag=bili自动地区(搜索)
 
 [Mitm]
-hostname = ap?.bilibili.com, ap?.biliapi.net
+hostname = ap?.bili*i.com, ap?.bili*i.net
 
 ***************************/
 
@@ -76,11 +76,11 @@ let $ = nobyda();
 let run = EnvInfo();
 
 async function SwitchRegion(play) {
-	const Group = $.read('BiliArea_Policy') || 'Bilibili'; //Your blibli policy group name.
-	const CN = $.read('BiliArea_CN') || 'Direct'; //Your China sub-policy name.
-	const TW = $.read('BiliArea_TW') || 'TW'; //Your Taiwan sub-policy name.
-	const HK = $.read('BiliArea_HK') || 'HK'; //Your HongKong sub-policy name.
-	const DF = $.read('BiliArea_DF') || 'DF'; //Sub-policy name used after region is blocked(e.g. url 404)
+	const Group = $.read('BiliArea_Policy') || '📺 DomesticMedia'; //Your blibli policy group name.
+	const CN = $.read('BiliArea_CN') || 'DIRECT'; //Your China sub-policy name.
+	const TW = $.read('BiliArea_TW') || '🇹🇼 sub-policy'; //Your Taiwan sub-policy name.
+	const HK = $.read('BiliArea_HK') || '🇭🇰 sub-policy'; //Your HongKong sub-policy name.
+	const DF = $.read('BiliArea_DF') || '🏁 sub-policy'; //Sub-policy name used after region is blocked(e.g. url 404)
 	const off = $.read('BiliArea_disabled') || ''; //WiFi blacklist(disable region change), separated by commas.
 	const current = await $.getPolicy(Group);
 	const area = (() => {
@@ -132,23 +132,25 @@ function SwitchStatus(status, original, newPolicy) {
 }
 
 function EnvInfo() {
+	const url = $request.url;
 	if (typeof($response) !== 'undefined') {
-		const raw = JSON.parse($response.body);
+		const raw = JSON.parse($response.body || "{}");
 		const data = raw.data || raw.result || {};
-		SwitchRegion(data.title || (raw.code === -404 ? -404 : null))
+		const t1 = (data.series && data.series.series_title) || data.title;
+		const t2 = raw.code === -404 ? -404 : null;
+		SwitchRegion(t1 || t2)
 			.then(s => s ? $done({
-				status: $.isQuanX ? "HTTP/1.1 408 Request Timeout" : 408,
+				status: $.isQuanX ? "HTTP/1.1 307" :307,
 				headers: {
-					Connection: "close"
+					Location: url
 				},
 				body: "{}"
 			}) : QueryRating(raw, data));
 	} else {
-		const raw = $request.url;
 		const res = {
-			url: raw.replace(/%20(%E6%B8%AF|%E5%8F%B0|%E4%B8%AD)&/g, '&')
+			url: url.replace(/%20(%E6%B8%AF|%E5%8F%B0|%E4%B8%AD)&/g, '&')
 		};
-		SwitchRegion(raw).then(() => $done(res));
+		SwitchRegion(url).then(() => $done(res));
 	}
 }
 
@@ -157,7 +159,7 @@ async function QueryRating(body, play) {
 		const ratingEnabled = $.read('BiliDoubanRating') === 'false';
 		if (!ratingEnabled && play.title && body.data && body.data.badge_info) {
 			const [t1, t2] = await Promise.all([
-				GetRawInfo(play.title),
+				GetRawInfo(play.title.replace(/\uff08\u50c5[\u4e00-\u9fa5]+\u5340\uff09/, '')),
 				GetRawInfo(play.origin_name)
 			]);
 			const exYear = body.data.publish.release_date_show.split(/^(\d{4})/)[1];
@@ -229,7 +231,7 @@ function GetRawInfo(t) {
 			} else {
 				if (/\u767b\u5f55<\/a>\u540e\u91cd\u8bd5\u3002/.test(data)) $.is403 = true;
 				let s = data.replace(/\n| |&#\d{2}/g, '')
-					.match(/\[\u7535\u5f71\].+?subject-cast\">.+?<\/span>/g) || [];
+					.match(/\[(\u7535\u5f71|\u7535\u89c6\u5267)\].+?subject-cast\">.+?<\/span>/g) || [];
 				for (let i = 0; i < s.length; i++) {
 					res.push({
 						name: s[i].split(/\}\)">(.+?)<\/a>/)[1],
@@ -242,7 +244,7 @@ function GetRawInfo(t) {
 					})
 				}
 				let et = ((Date.now() - st) / 1000).toFixed(2);
-				// console.log(`Douban rating: \n${t}\n${res.length} movie info searched. (${et} s)\n`);
+				console.log(`Douban rating: \n${t}\n${res.length} movie info searched. (${et} s)\n`);
 			}
 			resolve(res);
 		})
