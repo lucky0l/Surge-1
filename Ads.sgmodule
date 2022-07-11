@@ -6,6 +6,14 @@
 force-http-engine-hosts = %APPEND% intl.iqiyi.com, maicai.api.ddxq.mobi, mobileapi-v6.elong.com, wmapi.meituan.com, weibointl.api.weibo.cn, *.ott.cibntv.net, *.weixin.qq.com,*.qpic.cn
 
 [Rule]
+DOMAIN,zyb-miaobao-pub-1253445850.cos.ap-beijing.myqcloud.com,REJECT
+DOMAIN,wxsnsdythumb.wxs.qq.com,REJECT
+DOMAIN-SUFFIX,crashlyticsreports-pa.googleapis.com,REJECT
+DOMAIN-SUFFIX,safebrowsing.urlsec.qq.com,REJECT
+DOMAIN-SUFFIX,safebrowsing.googleapis.com,REJECT
+DOMAIN-SUFFIX,lookup.api.bsb.baidu.com,REJECT
+DOMAIN-SUFFIX,applovin.com,REJECT
+DOMAIN-SUFFIX,applvn.com,REJECT
 URL-REGEX,;^https:\/\/mobile\.cmbchina\.com\/GExternal\/ClientConfigLoad\/GetClientCfg\.aspx,REJECT
 DOMAIN,sessions.bugsnag.com,REJECT-DROP
 DOMAIN,data.flurry.com,REJECT-DROP
