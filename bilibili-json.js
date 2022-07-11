@@ -55,7 +55,7 @@ if (!body.hasOwnProperty('data')) {
                     // console.log('去除会员购');
                     return false;
                 }
-                    return true;
+                return true;
             });
             fixPos(body.data.bottom);
         }
